@@ -27,12 +27,6 @@ class Restaurante:
     def alternar_estado(self):
         self._ativo = not self._ativo
 
-restaurante_praca = Restaurante('praça', 'Gourmet')   # Criando um novo restaurante que contenha os atributos iguais ao de Restaurante().
-restaurante_praca.alternar_estado()
-restaurante_pizza = Restaurante('pizza express', 'Italiana')   # Objeto (restaurante_pizza) criado com a classe (Restaurante).
-
-
-Restaurante.listar_restaurantes()
 
 # print(vars(restaurante_praca))  # VARS: Ver um dicionário (atributo) desse objeto.
 
