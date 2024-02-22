@@ -19,9 +19,9 @@ class Restaurante:
     
     @classmethod
     def listar_restaurantes(cls):
-        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
+        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(25)} |{'Status'}')
         for restaurante in cls.restaurantes:
-            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')  #LJUST(?):para dar espaço.
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {str(restaurante.media_avaliacao).ljust(25)} | {restaurante.ativo}')  #LJUST(?):para dar espaço.
 
     @property                                    #Modificar como determinado atributo (ex: ativo) vai ser lido.
     def ativo(self):
@@ -34,7 +34,14 @@ class Restaurante:
         avalicao = Avaliacao(cliente, nota)                         # avalicao: novo objeto criado.
         self._avalicao.append(avalicao)
 
-
+    @property
+    def media_avaliacao(self):                                 #self: avaliação do restaurante que está sendo usado.
+        if not self._avalicao:
+            return 0
+        soma_das_notas = sum(avaliacao._nota for avaliacao in self._avalicao)
+        quantidade_de_notas = len(self._avalicao)
+        media = round(soma_das_notas / quantidade_de_notas, 1)     #ROUND: arredonda o valor da equação e deixar 1 casa decimal.
+        return media
     
 
 
