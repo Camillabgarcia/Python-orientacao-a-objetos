@@ -31,13 +31,14 @@ class Restaurante:
         self._ativo = not self._ativo
 
     def receber_avalicao(self,cliente, nota):                       # Self = Objeto(restaurante).
-        avalicao = Avaliacao(cliente, nota)                         # avalicao: novo objeto criado.
-        self._avalicao.append(avalicao)
+        if 0 < nota <= 5 :
+            avalicao = Avaliacao(cliente, nota)                         # avalicao: novo objeto criado.
+            self._avalicao.append(avalicao)
 
     @property
     def media_avaliacao(self):                                 #self: avaliação do restaurante que está sendo usado.
         if not self._avalicao:
-            return 0
+            return '-'
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avalicao)
         quantidade_de_notas = len(self._avalicao)
         media = round(soma_das_notas / quantidade_de_notas, 1)     #ROUND: arredonda o valor da equação e deixar 1 casa decimal.
