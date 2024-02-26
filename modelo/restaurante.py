@@ -10,6 +10,7 @@ class Restaurante:
         self._categoria = categoria.upper()      # Atributos # UPPER: todas as letras maiusculas.
         self._ativo = False                      #Definiu apenas como falso(Padrão)._ativo: para as pessoas não acessarem (Protegido).
         self._avalicao = []                      # Não entra como parametro, pois não é para manipular como os demais.
+        self._cardapio = []                    
         Restaurante.restaurantes.append(self)
 
     # __STR__: Pega o objeto e define que, se precisarmos mostrar esse objeto em formato de texto,
@@ -43,6 +44,12 @@ class Restaurante:
         quantidade_de_notas = len(self._avalicao)
         media = round(soma_das_notas / quantidade_de_notas, 1)     #ROUND: arredonda o valor da equação e deixar 1 casa decimal.
         return media
+    
+    def adicionar_bebida_no_cardapio(self, bebida):
+        self._cardapio.append(bebida)
+
+    def adicionar_prato_no_cardapio(self, prato):
+        self._cardapio.append(prato)
     
 
 
