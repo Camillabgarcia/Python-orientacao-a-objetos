@@ -16,8 +16,7 @@ restaurante_praca.adicionar_no_cardapio(prato_rosca)
 #restaurante_praca.receber_avalicao('Emy', 2)
 
 def main():
-    print(bebida_suco)
-    print(prato_rosca)
+    restaurante_praca.exibir_cardapio
 
 
 
