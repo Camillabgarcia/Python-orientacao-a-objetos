@@ -8,4 +8,5 @@ class ItemCardapio(ABC):
     @abstractclassmethod
     def aplicar_desconto(self):
         pass
-       
+
+    
